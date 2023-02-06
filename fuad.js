@@ -1,4 +1,4 @@
-const template = document.createElement('template');
+const template = document.createElement("template");
 template.innerHTML = `
     <style>
         h2 {
@@ -74,7 +74,7 @@ template.innerHTML = `
                 <p><slot name="email"/></p>
                 <p><slot name="phone"/></p>
             </div>
-            <button id="toggle-details" class="btn-primary" type="button">Less</button>
+            <button id="toggle-details" class="btn-primary" type="button">Less Details</button>
         </div>
     </div>
 `;
@@ -83,11 +83,42 @@ class UserProfile extends HTMLElement {
     constructor() {
         super();
 
-        this.attachShadow({ mode: 'open' });
+        this.expanded = true;
+
+        this.attachShadow({ mode: "open" });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
-        this.shadowRoot.querySelector('#user-name').innerText = this.getAttribute('name');
-        this.shadowRoot.querySelector('#profile-picture').src = this.getAttribute('image');
+        this.shadowRoot.querySelector("#user-name").innerText =
+            this.getAttribute("name");
+        this.shadowRoot.querySelector("#profile-picture").src =
+            this.getAttribute("image");
+    }
+
+    toggleDetails(){
+        this.expanded = !this.expanded;
+
+        const details = this.shadowRoot.querySelector('.user-info');
+        const detailButton = this.shadowRoot.querySelector('#toggle-details');
+
+        if(this.expanded) {
+            details.style.display = 'block';
+            detailButton.innerText = 'Less Details';
+        } else {
+            details.style.display = 'none';
+            detailButton.innerText = 'More Details';
+        }
+    }
+
+    connectedCallback() {
+        this.shadowRoot
+            .querySelector("#toggle-details")
+            .addEventListener("click", () => this.toggleDetails());
+    }
+
+    disconnectedCallback() {
+        this.shadowRoot
+            .querySelector("#toggle-details")
+            .removeEventListener();
     }
 }
 
-window.customElements.define('user-profile', UserProfile);
+window.customElements.define("user-profile", UserProfile);
