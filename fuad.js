@@ -2,33 +2,11 @@ const template = document.createElement('template');
 template.innerHTML = `
     <style>
         h2 {
-            color: #023e8a;
-            font-weight: 700;
-        }
-
-        .light {
-            color: #0077b6;
-        }
-
-        .lighter {
-            color: #48cae4;
-        }
-
-        .lightest {
             color: #caf0f8;
-        }
-
-        #profile-picture {
-            width: 200px;
-            border-radius: 50%;
-            border: 8px solid white;
-            margin-top: 10px;
-        }
-
-        #text-details {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
+            font-weight: 700;
+            font-size: 48px;
+            word-break: keep-all;
+            width: 50%;
         }
 
         .btn-primary {
@@ -44,21 +22,49 @@ template.innerHTML = `
             margin-top: 10px;
         }
 
+        .light {
+            color: #0077b6;
+        }
+
+        .lighter {
+            color: #48cae4;
+        }
+
+        .lightest {
+            color: #caf0f8;
+        }
+
+        #profile-picture {
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        #text-details {
+            background-color: black;
+            padding: 30px 20px;
+            color: white;
+        }
+
+        #toggle-details {
+            width: 50%;
+        }
+
         .user-info {
         }
 
         .user-profile {
             background-color: #e3f8fc;
-            width: 700px;
-            min-height: 300px;
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            grid-gap: 20px;
+            width: 800px;
+            height: 400px;
+            display: flex;
+            justify-content: start;
             margin-bottom: 20px;
             border-radius: 8px;
-            padding: 30px;
             vertical-align: middle;
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            overflow: hidden;
         }
     </style>
     <div class="user-profile">
