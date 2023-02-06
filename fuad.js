@@ -42,7 +42,6 @@ template.innerHTML = `
         }
 
         #text-details {
-            background-color: black;
             padding: 30px 20px;
             color: white;
         }
@@ -55,7 +54,7 @@ template.innerHTML = `
         }
 
         .user-profile {
-            background-color: #e3f8fc;
+            background-color: black;
             width: 800px;
             height: 400px;
             display: flex;
