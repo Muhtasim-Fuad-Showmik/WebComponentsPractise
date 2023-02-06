@@ -71,8 +71,8 @@ template.innerHTML = `
         <div id="text-details">
             <h2 id="user-name"></h2>
             <div class="user-info">
-                <p>EMAIL</p>
-                <p>PHONE</p>
+                <p><slot name="email"/></p>
+                <p><slot name="phone"/></p>
             </div>
             <button id="toggle-details" class="btn-primary" type="button">Less</button>
         </div>
