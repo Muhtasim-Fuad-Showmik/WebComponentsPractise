@@ -9,7 +9,24 @@ template.innerHTML = `
             width: 50%;
         }
 
-        .btn-primary {
+        .btn + .btn {
+            margin-left: 10px;
+        }
+
+        .btn.circle {
+            height: 38px;
+            width: 38px;
+            cursor: pointer;
+            background-color: #0077b6;
+            outline: none;
+            font-size: 16px;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            margin-top: 10px;
+        }
+
+        .btn.primary {
             min-width: 120px;
             cursor: pointer;
             background-color: #0077b6;
@@ -66,6 +83,8 @@ template.innerHTML = `
             overflow: hidden;
         }
     </style>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <div class="user-profile">
         <img id="profile-picture" >
         <div id="text-details">
@@ -74,7 +93,10 @@ template.innerHTML = `
                 <p><slot name="email"/></p>
                 <p><slot name="phone"/></p>
             </div>
-            <button id="toggle-details" class="btn-primary" type="button">Less Details</button>
+            <button id="toggle-details" class="btn primary" type="button">Less Details</button>
+            <button id="edit-profile-btn" class="btn circle">
+                <i class="fa-solid fa-pencil"></i>
+            </button>
         </div>
     </div>
 `;
